@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewan Developments | إيوان للتطوير العقاري</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        .navy-gradient { background: linear-gradient(135deg, #020617 0%, #0f172a 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hot-deal-card { border: 2px solid #ea580c; box-shadow: 0 0 20px rgba(234, 88, 12, 0.15); }
+        @keyframes pulse-custom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .animate-deal { animation: pulse-custom 2s infinite; }
+    </style>
+</head>
+<body class="bg-slate-50 antialiased text-slate-900">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const EwanApp = () => {
+            const phone = "01080538283";
+
+            return (
+                <div className="min-h-screen">
+                    {/* 1. Navbar */}
+                    <nav className="bg-slate-950/95 backdrop-blur-md text-white py-4 px-6 md:px-16 flex justify-between items-center fixed w-full top-0 z-50 border-b border-white/10 shadow-2xl">
+                        <div className="flex flex-col">
+                            <span className="text-2xl md:text-3xl font-black italic tracking-tighter uppercase">EWAN <span className="text-orange-600">Developments</span></span>
+                            <span className="text-[9px] text-gray-500 tracking-[0.4em] uppercase font-bold italic">Real Estate & Investment</span>
+                        </div>
+                        <a href={`tel:${phone}`} className="bg-orange-600 px-6 py-2 rounded-xl font-black text-sm hover:bg-white hover:text-slate-950 transition shadow-lg shadow-orange-600/20">اتصل بنا</a>
+                    </nav>
+
+                    {/* 2. Hero Section - HOM' Project */}
+                    <header className="relative h-[80vh] flex items-center justify-center text-center text-white pt-20 overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="high.webp" className="w-full h-full object-cover scale-105" onError={(e) => e.target.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000'} />
+                            <div className="absolute inset-0 bg-slate-950/60"></div>
+                        </div>
+                        <div className="relative z-10 max-w-4xl mx-auto px-4">
+                            <div className="inline-block bg-orange-600 px-4 py-1 rounded-md text-[10px] font-black uppercase tracking-[0.3em] mb-6 italic">Featured Project</div>
+                            <h1 className="text-5xl md:text-8xl font-black mb-6 leading-tight italic tracking-tighter uppercase">HOM’ | Harmony <br/> of Moments</h1>
+                            <p className="text-xl md:text-2xl font-bold text-orange-400 mb-10 italic underline decoration-white/20 underline-offset-8">أحدث مشاريع الـ Golden Square - حدائق أكتوبر</p>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                <a href="#hot-deals" className="bg-white text-slate-950 px-10 py-4 rounded-full font-black text-xl hover:bg-orange-600 hover:text-white transition shadow-2xl italic">عرض الكاش (اللقطة)</a>
+                                <a href="#project-details" className="bg-orange-600 text-white px-10 py-4 rounded-full font-black text-xl hover:bg-white hover:text-slate-950 transition shadow-2xl italic">تفاصيل التقسيط</a>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* 3. Hot Deals Section - شقة المستثمرين */}
+                    <section id="hot-deals" className="py-24 px-6 md:px-16 bg-white">
+                        <div className="max-w-6xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl md:text-5xl font-black text-slate-950 mb-4 italic uppercase">وحدات تسليم فوري (كاش)</h2>
+                                <p className="text-gray-500 font-bold italic text-lg">عروض حصرية بأسعار لقطة لسرعة التنفيذ</p>
+                            </div>
+                            
+                            <div className="hot-deal-card bg-slate-50 rounded-[4rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl relative">
+                                <div className="absolute top-8 left-8 bg-orange-600 text-white px-6 py-1 rounded-full font-black text-xs animate-deal shadow-lg shadow-orange-600/30 italic">فرصة لن تتكرر</div>
+                                
+                                <div className="lg:w-1/2 p-10 md:p-16">
+                                    <h3 className="text-3xl md:text-4xl font-black text-slate-950 mb-8 italic leading-tight">شقة كمبوند المستثمرين (عمارات K)</h3>
+                                    <div className="space-y-5 text-xl font-bold text-slate-600 italic">
+                                        <p className="flex items-center gap-3">📍 <span className="text-slate-950">فيو مفتوح بالكامل (غير مجروحة نهائياً)</span></p>
+                                        <p className="flex items-center gap-3">🏢 الدور الرابع - نموذج الـ 3 غرف (التقسيمة الأفضل)</p>
+                                        <p className="flex items-center gap-3">🧱 طوب أحمر (متقفلة ألوميتال بالكامل)</p>
+                                        <p className="flex items-center gap-3 text-green-600 bg-green-50 p-3 rounded-2xl border border-green-100 shadow-sm">✅ السعر شامل وديعة الصيانة بالكامل</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="lg:w-1/2 bg-slate-900 text-white p-12 flex flex-col justify-center items-center text-center">
+                                    <span className="text-gray-400 font-black text-sm uppercase tracking-[0.3em] mb-4">السعر النهائي (كاش)</span>
+                                    <div className="text-7xl font-black italic tracking-tighter text-orange-500 mb-10">970,000 <span className="text-xl font-normal text-gray-500 italic">ج.م</span></div>
+                                    <div className="grid grid-cols-1 w-full gap-4 max-w-sm">
+                                        <a href={`https://wa.me/20${phone}?text=أرغب في معاينة شقة المستثمرين عمارات K`} className="bg-[#25D366] text-white py-5 rounded-2xl font-black text-2xl hover:shadow-green-500/20 transition shadow-lg italic">واتساب للمعاينة</a>
+                                        <a href={`tel:${phone}`} className="bg-white text-slate-950 py-5 rounded-2xl font-black text-2xl hover:bg-orange-600 hover:text-white transition italic">اتصال مباشر</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* 4. Project Details - HOM' */}
+                    <section id="project-details" className="py-24 px-6 md:px-16 navy-gradient text-white relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                            <div>
+                                <h2 className="text-4xl md:text-6xl font-black mb-10 italic border-r-8 border-orange-600 pr-6 uppercase tracking-tighter text-orange-600 underline decoration-white/10">مشروع HOM’ <br/> Harmony of Moments</h2>
+                                <div className="space-y-6 mb-12">
+                                    <div className="flex items-center gap-4 text-xl font-bold bg-white/5 p-4 rounded-2xl hover:bg-white/10 transition italic">🏗️ مساحة 24 فدان - أرضي + 5 أدوار</div>
+                                    <div className="flex items-center gap-4 text-xl font-bold bg-white/5 p-4 rounded-2xl hover:bg-white/10 transition italic">🛍️ مول تجاري كامل الخدمات على الواجهة</div>
+                                    <div className="flex items-center gap-4 text-xl font-bold bg-white/5 p-4 rounded-2xl hover:bg-white/10 transition italic">📍 دقيقة من نادي الشرطة ونادي الزمالك</div>
+                                    <div className="flex items-center gap-4 text-xl font-bold bg-white/5 p-4 rounded-2xl hover:bg-white/10 transition italic">💳 مقدم 0% وأطول فترة سداد (10 سنوات)</div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <img src="high1.webp" className="rounded-3xl h-48 w-full object-cover shadow-2xl" onError={(e) => e.target.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500'} />
+                                    <img src="high2.webp" className="rounded-3xl h-48 w-full object-cover shadow-2xl" onError={(e) => e.target.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500'} />
+                                </div>
+                            </div>
+                            <div className="bg-white text-slate-950 p-12 rounded-[4rem] shadow-2xl text-center border-t-8 border-orange-600">
+                                <h3 className="text-gray-400 font-black text-xs uppercase tracking-[0.4em] mb-4 italic">أفضل سعر متر استثماري</h3>
+                                <div className="text-6xl font-black italic tracking-tighter text-slate-900 mb-6 underline decoration-orange-600 underline-offset-[12px]">26,000 <span className="text-lg font-normal text-gray-400 italic">ج.م</span></div>
+                                <div className="bg-orange-100 text-orange-700 py-4 px-8 rounded-2xl font-black text-2xl italic mb-6">EOI: 50,000 ج.م</div>
+                                <p className="text-green-600 font-bold text-sm mb-12 italic tracking-tighter">⚡ جدية الحجز مستردة بالكامل ⚡</p>
+                                <a href={`https://wa.me/20${phone}?text=مهتم بمشروع HOM في حدائق أكتوبر - نظام التقسيط`} className="block w-full bg-slate-950 text-white py-6 rounded-3xl font-black text-2xl hover:bg-orange-600 transition shadow-2xl shadow-slate-950/30 italic">احجز وحدتك الآن</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* 5. Footer */}
+                    <footer className="bg-slate-950 py-20 px-6 text-center text-gray-600">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-3xl font-black text-white italic mb-8 tracking-tighter uppercase">EWAN <span className="text-orange-600">Developments</span></div>
+                            <div className="flex justify-center gap-8 text-[10px] font-bold uppercase tracking-[0.5em] mb-12 italic">
+                                <span>القاهرة</span>
+                                <span>•</span>
+                                <span>أكتوبر</span>
+                                <span>•</span>
+                                <span>زايد</span>
+                            </div>
+                            <div className="pt-8 border-t border-white/5 text-[10px] uppercase font-black tracking-[0.3em]">
+                                © 2026 EWAN DEVELOPMENTS | Trusted Real Estate
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<EwanApp />);
+    </script>
+</body>
+</html>
